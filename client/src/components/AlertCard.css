@@ -1,0 +1,84 @@
+.alert-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.alert-card.urgency-critical::before { background: var(--danger); }
+.alert-card.urgency-high::before { background: var(--warning); }
+.alert-card.urgency-normal::before { background: var(--text-muted); }
+
+.alert-card.urgency-critical {
+  border-color: rgba(239,68,68,0.2);
+  animation: pulse-border 2s infinite;
+}
+
+.alert-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+.alert-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.alert-card-body h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+
+.alert-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.alert-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.alert-notes {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  border-left: 2px solid var(--border);
+}
+
+.alert-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.alert-responded {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--success);
+  font-weight: 500;
+}
+
+.text-success { color: var(--success); }
